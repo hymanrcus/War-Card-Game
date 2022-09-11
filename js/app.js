@@ -5,18 +5,25 @@ const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d0
 
 
 /*------------------------- Variables -------------------------*/
-
-
+let player1Stack = []
+let player2Stack = []
+let player1Flip = []
+let player2Flip = []
 
 
 /*------------------------- Cached elements  -------------------------*/
 
-const gameStatusEl = document.getElementById('gamestatus');
-
+const p1deck = document.getElementById('p1deck')
+const p2deck = document.getElementById('p2deck')
+const p1flip = document.getElementById('p1flip')
+const p2flip = document.getElementById('p2flip')
+const dealButton = document.getElementById('deal-btn')
+const flipButton = document.getElementById('flip-btn')
 
 /*------------------------- Event Listeners  -------------------------*/
 
-dealButton.addEventListener('click', dealCards);
+dealButton.addEventListener('click', dealCards)
+flipButton.addEventListener('click', handleclick )
 
 
 /*------------------------- Functions  -------------------------*/
@@ -50,10 +57,12 @@ function dealCards() {
   }
 }
 
+dealCards()
 
 
 
 
 
 
-console.log(temp)
+
+// console.log(dealButton)
