@@ -11,12 +11,49 @@ const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d0
 
 /*------------------------- Cached elements  -------------------------*/
 
-
+const gameStatusEl = document.getElementById('gamestatus');
 
 
 /*------------------------- Event Listeners  -------------------------*/
 
-
+dealButton.addEventListener('click', dealCards);
 
 
 /*------------------------- Functions  -------------------------*/
+
+function shuffleDeck() {
+  let temp = null
+  for (let idx = cards.length - 1; idx > 0; idx -= 1) {
+    let rndIdx = Math.floor(Math.random() * (idx + 1))
+    temp = cards[idx]
+    cards[idx] = cards[rndIdx]
+    cards[rndIdx] = temp
+}
+return cards
+
+}
+
+function dealCards() {
+  if (cards.length > 0) {
+      for (let i = 0; i < 26; i++) {
+          let cardDealt1;
+          cardDealt1 = cards.splice(0, 1);
+          player1Stack.push(cardDealt1);
+          player1Stack = player1Stack.flat()
+      }
+      for (let i = 0; i < 26; i++) {
+          let cardDealt2;
+          cardDealt2 = cards.splice(0, 1);
+          player2Stack.push(cardDealt2);
+          player2Stack = player2Stack.flat()
+      }
+  }
+}
+
+
+
+
+
+
+
+console.log(temp)
