@@ -56,23 +56,42 @@ function dealCards() {
           player2Stack = player2Stack.flat()
       }
   }
+  render()
 }
 
 dealCards()
 
 function handleFlip() {
   if (player1Stack.length > 0) {
-      currP1Flip = player1Stack.splice(0, 1);
-      player1Flip.push(currP1Flip);
-
+      player1Flip = player1Stack.splice(0, 1);
+      //console.log(player1Flip)
+      p1flipEl.classList.replace('outline', player1Flip);
+      p1flipEl.classList.add('animated', 'zoomInLeft');
   }
   if (player2Stack.length > 0) {
-      currP2Flip = player2Stack.splice(0, 1);
-      player2Flip.push(currP2Flip)
-
+      player2Flip= player2Stack.splice(0, 1);
+      //console.log(player2Flip)
+      p2flipEl.classList.replace('outline', player2Flip);
+      p2flipEl.classList.add('animated', 'zoomInRight');
   }
-  compareFlipped()
-}
+
+};
+
+function render(){
+  //Player 1 Render
+  let cardToRemove1 = this.cardDealt1
+    if (player1Stack.length > 0) {
+      p1deckEl.classList.remove('outline');
+      p1deckEl.classList.remove(cardToRemove1);
+    }
+  //Player 2 Render
+  let cardToRemove2 = this.cardDealt2
+    if (player2Stack.length > 0) {
+      p2deckEl.classList.remove('outline');
+      p2deckEl.classList.remove(cardToRemove2);
+    }
+  }
+
 
 function compareFlipped() {
   if (covertCardToNumber(player1Flip) > covertCardToNumber(player2Flip)) {
