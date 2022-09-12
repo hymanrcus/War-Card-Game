@@ -74,10 +74,19 @@ function handleFlip() {
   compareFlipped()
 }
 
+function compareFlipped() {
+  if (covertCardToNumber(player1Flip) > covertCardToNumber(player2Flip)) {
+      player1Stack.push(`${player1Flip}`);
+      player1Stack.push(`${player2Flip}`);
+      player2Stack.splice(player2Stack.length, 1);
+
+  } else if (covertCardToNumber(player1Flip) < covertCardToNumber(player2Flip)) {
+      player2Stack.push(`${player2Flip}`);
+      player2Stack.push(`${player1Flip}`);
+      player1Stack.splice(player1Stack.length, 1);
+
+  }}
 
 
-
-
-
-console.log(player1Flip)
-console.log(player2Flip)
+// console.log(player1Flip)
+// console.log(player2Flip)
