@@ -24,7 +24,7 @@ const flipButton = document.getElementById('flip-btn')
 /*------------------------- Event Listeners  -------------------------*/
 
 dealButton.addEventListener('click', dealCards)
-flipButton.addEventListener('click', handleclick )
+flipButton.addEventListener('click', handleFlip )
 
 
 /*------------------------- Functions  -------------------------*/
@@ -85,8 +85,11 @@ function compareFlipped() {
       player2Stack.push(`${player1Flip}`);
       player1Stack.splice(player1Stack.length, 1);
 
-  }}
+  }else {
+    // war()
+  }
+}
 
 
-// console.log(player1Flip)
-// console.log(player2Flip)
+console.log(`Player 1 has ${player1Stack.length} cards`)
+console.log(`Player 2 has ${player2Stack.length} cards`)
