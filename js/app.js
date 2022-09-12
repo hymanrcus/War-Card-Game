@@ -9,6 +9,7 @@ let player1Stack = []
 let player2Stack = []
 let player1Flip = []
 let player2Flip = []
+let currP1Flip;
 
 
 /*------------------------- Cached elements  -------------------------*/
@@ -59,10 +60,24 @@ function dealCards() {
 
 dealCards()
 
+function handleFlip() {
+  if (player1Stack.length > 0) {
+      currP1Flip = player1Stack.splice(0, 1);
+      player1Flip.push(currP1Flip);
+
+  }
+  if (player2Stack.length > 0) {
+      currP2Flip = player2Stack.splice(0, 1);
+      player2Flip.push(currP2Flip)
+
+  }
+  compareFlipped()
+}
 
 
 
 
 
 
-// console.log(dealButton)
+console.log(player1Flip)
+console.log(player2Flip)
