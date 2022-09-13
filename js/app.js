@@ -141,6 +141,34 @@ function war() {
       console.log("player 2 I DECLARE WAR " + p2iDeclareWar)
       console.log("player 2  war " + p2War)
   }
+// compareWarCards();
+}
+
+function compareWarCards() {
+  if (covertCardToNumber(p1War) > covertCardToNumber(p2War)) {
+      player1Stack.push(`${p1iDeclareWar[0]}`, `${p1iDeclareWar[1]}`, `${p1iDeclareWar[2]}`);
+      player1Stack.push(`${player1Flip[0]}`);
+      player1Stack.push(`${p2iDeclareWar[0]}`, `${p2iDeclareWar[1]}`, `${p2iDeclareWar[2]}`);
+      player1Stack.push(`${player2Flip[0]}`);
+      player1Stack.push(`${p2War}`);
+      player2Stack.splice(player2Stack.length - 1, 1);
+      winner = 1;
+  } else if (covertCardToNumber(p1War) < covertCardToNumber(p2War)) {
+      player2Stack.push(`${p2iDeclareWar[0]}`, `${p2iDeclareWar[1]}`, `${p2iDeclareWar[2]}`);
+      player2Stack.push(`${player2Flip[0]}`);
+      player2Stack.push(`${p1iDeclareWar[0]}`, `${p1iDeclareWar[1]}`, `${p1iDeclareWar[2]}`);
+      player2Stack.push(`${player1Flip[0]}`);
+      player2Stack.push(p1War);
+      player1Stack.splice(player1Stack.length - 1, 1);
+      winner = 2;
+  } else {
+      console.log("War for the second time");
+  }
+  setTimeout (function (){
+  flipButton.style.display = 'block';
+  }, 4000);
+};
+
 
 function cardConversion(card) {
   // if('${card}' === "d02", "c02", "s02", "h02")
