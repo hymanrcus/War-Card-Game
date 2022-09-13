@@ -166,6 +166,28 @@ function getWinner(){
   }
 }
 
+function clearDisplay(){
+  if(covertCardToNumber(currP1Flip) > covertCardToNumber(currP2Flip)){
+      setTimeout (function(){
+      p2flipEl.classList.add('animated', 'slideOutLeft')
+      },1000)
+      setTimeout (function(){
+      p1flipEl.classList.add('animated', 'slideOutLeft')
+      },2000)
+  }
+
+  if(covertCardToNumber(currP1Flip) < covertCardToNumber(currP2Flip)){
+      setTimeout (function(){
+      p1flipEl.classList.add('animated', 'slideOutRight')
+      },1000)
+      setTimeout (function(){
+      p2flipEl.classList.add('animated', 'slideOutRight')
+      },2000)
+  }
+  render(currP1Flip, currP2Flip)
+
+}
+
 function compareWarCards() {
   if (covertCardToNumber(p1War) > covertCardToNumber(p2War)) {
       player1Stack.push(`${p1iDeclareWar[0]}`, `${p1iDeclareWar[1]}`, `${p1iDeclareWar[2]}`);
