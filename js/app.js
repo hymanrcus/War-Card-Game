@@ -235,12 +235,27 @@ function initDisplay(){
   p2warFlipEl.style.display = 'none'
   p1iDeclareWarEl.style.display = 'none'
   p2iDeclareWarEl.style.display = 'none'
+}
+
+/*------------------------- Display Functions -------------------------*/
+function initDisplay(){
+  p1warFlipEl.style.display = 'none'
+  p2warFlipEl.style.display = 'none'
+  p1iDeclareWarEl.style.display = 'none'
+  p2iDeclareWarEl.style.display = 'none'
 
 }
 
+function warDisplay(){
+  flipButton.style.display = 'none'
+  p1warFlipEl.style.display = 'block'
+  p2warFlipEl.style.display = 'block'
+  p1iDeclareWarEl.style.display = 'block'
+  p2iDeclareWarEl.style.display = 'block'
+}
 
 
-/*------------------------- Functions called upon loading page -------------------------*/
-initDisplay()git 
+/*---------------- Functions called upon loading page-------------------------*/
+initDisplay()
 
 
