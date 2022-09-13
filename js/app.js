@@ -69,8 +69,9 @@ function dealCards() {
   }
 
 }
-
+function handleFlip(){
 dealCards()
+}
 
 function handleFlip() {
   if (player1Stack.length > 0) {
@@ -87,7 +88,6 @@ function handleFlip() {
       p2flipEl.classList.add('animated', 'zoomInRight');
       player2Flip.push(currP2Flip)
   }
-
   if(winner = 1){
     p1flipEl.classList.replace('slideOutLeft', currP1Flip)
     p2flipEl.classList.replace('slideOutLeft', currP2Flip)
@@ -96,7 +96,7 @@ if(winner = 2){
     p1flipEl.classList.replace('slideOutRight', currP1Flip)
     p2flipEl.classList.replace('slideOutRight', currP2Flip)
   compareFlipped()
-};
+};}
 
 
 function compareFlipped() {
@@ -155,6 +155,15 @@ function war() {
       console.log("player 2  war " + p2War)
   }
 compareWarCards();
+}
+
+function getWinner(){
+  if (player1Stack.length === 52){
+      gameStatusEl.innerText = 'Player 1 Wins!'
+  }
+  if (player2Stack.length === 52){
+      gameStatusEl.innerText = 'Player 2 Wins!'
+  }
 }
 
 function compareWarCards() {
@@ -243,6 +252,9 @@ function render(currP1Flip, currP2Flip) {
   }
 
 /*------------------------- Display Functions -------------------------*/
+
+
+
 function initDisplay(){
   p1warFlipEl.style.display = 'none'
   p2warFlipEl.style.display = 'none'
@@ -262,4 +274,4 @@ function warDisplay(){
 /*---------------- Functions called upon loading page-------------------------*/
 initDisplay()
 
-}
+
