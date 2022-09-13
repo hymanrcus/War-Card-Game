@@ -214,6 +214,7 @@ function render(currP1Flip, currP2Flip){
      // Store the card to remove next round as a variable
     cardToRemove1 = `${player1Flip}`
     p1flipEl.classList.add(`${player1Flip}`)
+    p1flipEl.classList.add('animated' ,'fadeInLeft')
   
   //Player 2 Render
   if(player2Flip.length === 1){
@@ -225,11 +226,21 @@ function render(currP1Flip, currP2Flip){
      // Store the card to remove next round as a variable
     cardToRemove2 = `${player2Flip}`
     p2flipEl.classList.add(`${player2Flip}`)
-  
+    p2flipEl.classList.add('animated' , 'fadeInRight')
   }
 
+/*------------------------- Display Functions -------------------------*/
+function initDisplay(){
+  p1warFlipEl.style.display = 'none'
+  p2warFlipEl.style.display = 'none'
+  p1iDeclareWarEl.style.display = 'none'
+  p2iDeclareWarEl.style.display = 'none'
+
+}
 
 
 
-// console.log(`Player 1 has ${player1Stack.length} cards`)
-// console.log(`Player 2 has ${player2Stack.length} cards`)
+/*------------------------- Functions called upon loading page -------------------------*/
+initDisplay()git 
+
+
