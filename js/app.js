@@ -67,11 +67,8 @@ function dealCards() {
           player2Stack = player2Stack.flat()
       }
   }
+}
 
-}
-function handleFlip(){
-dealCards()
-}
 
 function handleFlip() {
   if (player1Stack.length > 0) {
@@ -107,6 +104,9 @@ function compareFlipped() {
     winner = 1;
     gameStatusEl.innerText = "Player 1 Wins This Round!"
     clearDisplay()
+    setTimeout (function (){
+      flipButton.style.display = 'block';
+    }, 3500)
     
   } else if (cardConversion(player1Flip) < cardConversion(player2Flip)) {
     player2Stack.push(`${player2Flip}`);
@@ -115,20 +115,24 @@ function compareFlipped() {
     winner = 2;
     gameStatusEl.innerText = "Player 2 Wins This Round!"
     clearDisplay()
+    setTimeout (function (){
+      flipButton.style.display = 'block';
+    }, 3500)
   }else {
     war()
     setTimeout(function(){
       clearWarDisplay()
-    },6000)
+    },2000)
 }
 setTimeout (function (){
     flipButton.style.display = 'block';
-    }, 3500)
+    }, 4000)
   }
 
 
 function war() {
   gameStatusEl.innerText = 'I DECLARE WAR!'
+  flipButton.style.display = 'none'
   warDisplay()
   if (player1Stack.length > 0) {
       p1iDeclareWar = player1Stack.splice(0, 3);
@@ -137,11 +141,11 @@ function war() {
       setTimeout (function() {
           p1iDeclareWarEl.classList.replace('outline', 'back-blue');
           p1iDeclareWarEl.classList.add('animated', 'slideInLeft'); 
-      }, 3000);
+      }, 1000);
       setTimeout (function() {
           p1warFlipEl.classList.replace('outline', `${p1War}`);
           p1warFlipEl.classList.add('animated', 'slideInLeft'); 
-      }, 4000);
+      }, 2000);
       console.log("player 1 I DECLARE WAR" + p1iDeclareWar)
       console.log("player 1  war " + p1War)
   }
@@ -153,11 +157,11 @@ function war() {
       setTimeout (function() {
           p2iDeclareWarEl.classList.replace('outline', 'back-blue');
           p2iDeclareWarEl.classList.add('animated', 'slideInRight'); 
-      }, 3000);
+      }, 1000);
       setTimeout (function() {
           p2warFlipEl.classList.replace('outline', `${p2War}`);
           p2warFlipEl.classList.add('animated', 'slideInRight'); 
-      }, 4000);
+      }, 2000);
       console.log("player 2 I DECLARE WAR " + p2iDeclareWar)
       console.log("player 2  war " + p2War)
   }
@@ -174,6 +178,7 @@ function getWinner(){
 }
 
 function clearDisplay(){
+  flipButton.style.display = 'none'
   if(covertCardToNumber(currP1Flip) > covertCardToNumber(currP2Flip)){
       setTimeout (function(){
       p2flipEl.classList.add('animated', 'slideOutLeft')
@@ -196,24 +201,25 @@ function clearDisplay(){
 }
 
 function clearWarDisplay(){
+  flipButton.style.display = 'none'
   if(covertCardToNumber(p1War) > covertCardToNumber(p2War)){
     setTimeout (function(){
-        p2flipEl.classList.add('animated', 'slideOutLeft')
+      p2flipEl.classList.add('animated', 'slideOutLeft')
     },1000)
     setTimeout(function(){
-        p2iDeclareWarEl.classList.add('animated', 'slideOutLeft')
+      p2iDeclareWarEl.classList.add('animated', 'slideOutLeft')
     },2000)
     setTimeout (function(){
-        p2warFlipEl.classList.add('animated', 'slideOutLeft')
+      p2warFlipEl.classList.add('animated', 'slideOutLeft')
     },3000)
     setTimeout (function(){
-        p1warFlipEl.classList.add('animated', 'slideOutLeft')
+      p1warFlipEl.classList.add('animated', 'slideOutLeft')
     },4000)
     setTimeout(function(){
-        p1iDeclareWarEl.classList.add('animated', 'slideOutLeft')
+      p1iDeclareWarEl.classList.add('animated', 'slideOutLeft')
     },5000)
     setTimeout (function(){
-       p1flipEl.classList.add('animated', 'slideOutLeft')
+      p1flipEl.classList.add('animated', 'slideOutLeft')
     },6000)
     setTimeout(function(){
 
@@ -284,9 +290,9 @@ function compareWarCards() {
   } else {
       console.log("War for the second time");
   }
-  setTimeout (function (){
-  flipButton.style.display = 'block';
-  }, 11000);
+  // setTimeout (function (){
+  // flipButton.style.display = 'block';
+  // }, 11000);
 };
 
 
