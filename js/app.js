@@ -250,15 +250,6 @@ function initDisplay(){
   p2iDeclareWarEl.style.display = 'none'
 }
 
-/*------------------------- Display Functions -------------------------*/
-function initDisplay(){
-  p1warFlipEl.style.display = 'none'
-  p2warFlipEl.style.display = 'none'
-  p1iDeclareWarEl.style.display = 'none'
-  p2iDeclareWarEl.style.display = 'none'
-
-}
-
 function warDisplay(){
   flipButton.style.display = 'none'
   p1warFlipEl.style.display = 'block'
@@ -271,4 +262,4 @@ function warDisplay(){
 /*---------------- Functions called upon loading page-------------------------*/
 initDisplay()
 
-
+}
