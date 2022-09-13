@@ -1,0 +1,22 @@
+/* body {
+  background-image:
+  background-size; cover:
+} */
+
+h1{
+  display: flex;
+  color: #c3c3c3;
+  justify-content: center;
+}
+.game {
+    margin: 10% 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+}
