@@ -10,6 +10,11 @@ let player1Flip = []
 let player2Flip = []
 let currP1Flip;
 let currP2Flip;
+let p1War=[];
+let p2War=[];
+let p1iDeclareWar=[];
+let p2iDeclareWar=[];
+let winner;
 
 /*------------------------- Cached elements  -------------------------*/
 
@@ -19,7 +24,12 @@ const p1flipEl = document.getElementById('p1flip')
 const p2flipEl = document.getElementById('p2flip')
 const dealButton = document.getElementById('deal-btn')
 const flipButton = document.getElementById('flip-btn')
-
+const p1warFlipEl = document.getElementById('p1warflip');
+const p2warFlipEl = document.getElementById('p2warflip');
+const p1iDeclareWarEl = document.getElementById('p1IDW');
+const p2iDeclareWarEl = document.getElementById('p2IDW');
+const gameStatusEl = document.getElementById('status');
+// console.log(p1warFlipEl, p2warFlipEl, p1iDeclareWarEl, p2iDeclareWarEl, gameStatusEl)
 /*------------------------- Event Listeners  -------------------------*/
 
 dealButton.addEventListener('click', dealCards)
@@ -40,6 +50,9 @@ return cards
 }
 
 function dealCards() {
+  gameStatusEl.innerText = 'Flip The Cards!'
+  dealButton.style.display = 'none'
+  shuffleDeck();
   if (cards.length > 0) {
       for (let i = 0; i < 26; i++) {
           let cardDealt1;
@@ -90,9 +103,45 @@ function compareFlipped() {
     player1Stack.splice(player1Stack.length, 1);
 
   }else {
-    // war()
+    war()
   }
 }
+
+function war() {
+  gameStatusEl.innerText = 'I DECLARE WAR!'
+  warDisplay()
+  if (player1Stack.length > 0) {
+      p1iDeclareWar = player1Stack.splice(0, 3);
+      p1War = player1Stack.splice(0, 1);
+      player1Stack.push(p1War);
+      setTimeout (function() {
+          p1iDeclareWarEl.classList.replace('outline', 'back-blue');
+          p1iDeclareWarEl.classList.add('animated', 'slideInLeft'); 
+      }, 1000);
+      setTimeout (function() {
+          p1warFlipEl.classList.replace('outline', `${p1War}`);
+          p1warFlipEl.classList.add('animated', 'slideInLeft'); 
+      }, 2000);
+      console.log("player 1 I DECLARE WAR" + p1iDeclareWar)
+      console.log("player 1  war " + p1War)
+  }
+  if (player1Stack.length > 0) {
+      p2iDeclareWar = player2Stack.splice(0, 3);
+
+      p2War = player2Stack.splice(0, 1);
+      player2Stack.push(p2War);
+      setTimeout (function() {
+          p2iDeclareWarEl.classList.replace('outline', 'back-blue');
+          p2iDeclareWarEl.classList.add('animated', 'slideInRight'); 
+      }, 1000);
+      setTimeout (function() {
+          p2warFlipEl.classList.replace('outline', `${p2War}`);
+          p2warFlipEl.classList.add('animated', 'slideInRight'); 
+      }, 2000);
+      console.log("player 2 I DECLARE WAR " + p2iDeclareWar)
+      console.log("player 2  war " + p2War)
+  }
+
 function cardConversion(card) {
   // if('${card}' === "d02", "c02", "s02", "h02")
   // return 2
@@ -154,5 +203,5 @@ function render(currP1Flip, currP2Flip){
 
 
 
-console.log(`Player 1 has ${player1Stack.length} cards`)
-console.log(`Player 2 has ${player2Stack.length} cards`)
+// console.log(`Player 1 has ${player1Stack.length} cards`)
+// console.log(`Player 2 has ${player2Stack.length} cards`)
