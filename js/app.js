@@ -87,6 +87,14 @@ function handleFlip() {
       p2flipEl.classList.add('animated', 'zoomInRight');
       player2Flip.push(currP2Flip)
   }
+
+  if(winner = 1){
+    p1flipEl.classList.replace('slideOutLeft', currP1Flip)
+    p2flipEl.classList.replace('slideOutLeft', currP2Flip)
+}
+if(winner = 2){
+    p1flipEl.classList.replace('slideOutRight', currP1Flip)
+    p2flipEl.classList.replace('slideOutRight', currP2Flip)
   compareFlipped()
 };
 
@@ -96,12 +104,17 @@ function compareFlipped() {
     player1Stack.push(`${player1Flip}`);
     player1Stack.push(`${player2Flip}`);
     player2Stack.splice(player2Stack.length, 1);
+    winner = 1;
+    gameStatusEl.innerText = "Player 1 Wins This Round!"
+    clearDisplay()
     
   } else if (cardConversion(player1Flip) < cardConversion(player2Flip)) {
     player2Stack.push(`${player2Flip}`);
     player2Stack.push(`${player1Flip}`);
     player1Stack.splice(player1Stack.length, 1);
-
+    winner = 2;
+    gameStatusEl.innerText = "Player 2 Wins This Round!"
+    clearDisplay()
   }else {
     war()
   }
@@ -117,11 +130,11 @@ function war() {
       setTimeout (function() {
           p1iDeclareWarEl.classList.replace('outline', 'back-blue');
           p1iDeclareWarEl.classList.add('animated', 'slideInLeft'); 
-      }, 1000);
+      }, 3000);
       setTimeout (function() {
           p1warFlipEl.classList.replace('outline', `${p1War}`);
           p1warFlipEl.classList.add('animated', 'slideInLeft'); 
-      }, 2000);
+      }, 4000);
       console.log("player 1 I DECLARE WAR" + p1iDeclareWar)
       console.log("player 1  war " + p1War)
   }
@@ -133,15 +146,15 @@ function war() {
       setTimeout (function() {
           p2iDeclareWarEl.classList.replace('outline', 'back-blue');
           p2iDeclareWarEl.classList.add('animated', 'slideInRight'); 
-      }, 1000);
+      }, 3000);
       setTimeout (function() {
           p2warFlipEl.classList.replace('outline', `${p2War}`);
           p2warFlipEl.classList.add('animated', 'slideInRight'); 
-      }, 2000);
+      }, 4000);
       console.log("player 2 I DECLARE WAR " + p2iDeclareWar)
       console.log("player 2  war " + p2War)
   }
-// compareWarCards();
+compareWarCards();
 }
 
 function compareWarCards() {
@@ -202,7 +215,7 @@ function cardConversion(card) {
     return 14;
   }
 }
-function render(currP1Flip, currP2Flip){
+function render(currP1Flip, currP2Flip) {
   //Player 1 Render
   let cardToRemove1, cardToRemove2;
     if(player1Flip.length === 1){
