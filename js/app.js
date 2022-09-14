@@ -108,7 +108,7 @@ function compareFlipped() {
         setTimeout (function (){
           flipButton.style.display = 'block';
         }, 3500)
-       render(currP1Flip, currP2Flip)
+        render(currP1Flip, currP2Flip)
     } else if (covertCardToNumber(currP1Flip) < covertCardToNumber(currP2Flip)) {
         player2Stack.push(`${currP2Flip}`);
         player2Stack.push(`${currP1Flip}`);
@@ -145,7 +145,7 @@ function clearDisplay(){
     flipButton.style.display = 'none'
     if(covertCardToNumber(currP1Flip) > covertCardToNumber(currP2Flip)){
         setTimeout (function(){
-         p2flipEl.classList.add('animated', 'slideOutLeft')
+        p2flipEl.classList.add('animated', 'slideOutLeft')
         },1000)
         setTimeout (function(){
         p1flipEl.classList.add('animated', 'slideOutLeft')
@@ -153,7 +153,7 @@ function clearDisplay(){
     }
     if(covertCardToNumber(currP1Flip) < covertCardToNumber(currP2Flip)){
         setTimeout (function(){
-         p1flipEl.classList.add('animated', 'slideOutRight')
+        p1flipEl.classList.add('animated', 'slideOutRight')
         },1000)
         setTimeout (function(){
         p2flipEl.classList.add('animated', 'slideOutRight')
@@ -162,7 +162,8 @@ function clearDisplay(){
     render(currP1Flip, currP2Flip)
     getWinner()
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
-    counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
+    counter2.textContent =`Player 2 has: ${player2Stack.length} cards`
+    getWinner()
 }
 
 function war() {
@@ -196,7 +197,7 @@ function war() {
         console.log("player 2 I DECLARE WAR " + p2iDeclareWar)
         console.log("player 2  war " + p2War)
     }
-   compareWarCards();
+  compareWarCards();
 };
 
 function clearWarDisplay(){
@@ -217,7 +218,7 @@ function clearWarDisplay(){
         p1iDeclareWarEl.classList.add('animated', 'slideOutLeft')
     },6000)
     setTimeout (function(){
-       p1flipEl.classList.add('animated', 'slideOutLeft')
+      p1flipEl.classList.add('animated', 'slideOutLeft')
     },7000)
     setTimeout(function(){
         p1flipEl.classList.replace(`${currP1Flip}`,'outline')
@@ -250,7 +251,7 @@ function clearWarDisplay(){
         p1iDeclareWarEl.classList.add('animated', 'slideOutRight')
     },3000)
     setTimeout (function(){
-     p1warFlipEl.classList.add('animated', 'slideOutRight')
+    p1warFlipEl.classList.add('animated', 'slideOutRight')
     },4000)
     setTimeout (function(){
       p2warFlipEl.classList.add('animated', 'slideOutRight')
@@ -278,7 +279,7 @@ function clearWarDisplay(){
         p2flipEl.classList.remove('animated','fadeInRight','slideOutRight')
         p2flipEl.classList.replace(`${p2iDeclareWar}`, 'outline')
     },10000)
- 
+
     setTimeout(function(){
         p2iDeclareWarEl.style.display = 'none'
         p2warFlipEl.style.display = 'none'
@@ -303,7 +304,8 @@ function compareWarCards() {
         setTimeout(function(){
           gameStatusEl.innerText = "Player 1 Wins This WAR!"
           counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
-          counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
+          counter2.textContent =`Player 2 has: ${player2Stack.length} cards`
+          getWinner()
         },5000)
 
     } else if (covertCardToNumber(p1War) < covertCardToNumber(p2War)) {
@@ -317,14 +319,15 @@ function compareWarCards() {
         setTimeout(function(){
             gameStatusEl.innerText = "Player 2 Wins This WAR!"
             counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
-            counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
+            counter2.textContent =`Player 2 has: ${player2Stack.length} cards`
+            getWinner()
         },5000)
 
     } else {
         initDisplay()
         console.log("War for the second time");
     }
-    getWinner()
+    // getWinner()
     // setTimeout (function (){
     //  flipButton.style.display = 'block';
     // }, 11000);
@@ -332,10 +335,17 @@ function compareWarCards() {
 function getWinner(){
     if (player1Stack.length === 52){
         gameStatusEl.innerText = 'Player 1 Wins!'
+        gameStatusEl.style.color= 'green'
+        counter1.innerText = 'Player 1 wins!'
+        counter1.style.color= 'green'
+        counter2.style.display='none'
     }
     if (player2Stack.length === 52){
         gameStatusEl.innerText = 'Player 2 Wins!'
-
+        gameStatusEl.style.color= 'green'
+        counter1.innerText = 'Player 2 wins!'
+        counter1.style.color= 'green'
+        counter2.style.display='none'
     }
 }
 
