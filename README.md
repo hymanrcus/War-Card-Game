@@ -1,5 +1,5 @@
 # War-Card-Game
-[this is my wire frame](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
+[Wireframe found here](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
 
 ## Goal
 
@@ -30,3 +30,4 @@ JavaScript, HTML, CSS, Animate.css, favicon.io
 
 ## Next Steps
 Sounds
+backround/texture

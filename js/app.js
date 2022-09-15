@@ -52,13 +52,13 @@ resetButton.addEventListener('click', initDisplay);
     },1500)
     shuffleCards();
     if (cards.length > 0) {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 26; i++) {
             let cardDealt1;
             cardDealt1 = cards.splice(0, 1);
             player1Stack.push(cardDealt1);
             player1Stack = player1Stack.flat()
         }
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 26; i++) {
             let cardDealt2;
             cardDealt2 = cards.splice(0, 1);
             player2Stack.push(cardDealt2);
@@ -316,14 +316,14 @@ function compareWarCards() {
 };
 
 function getWinner(){
-    if (player1Stack.length === 8){
+    if (player1Stack.length === 52){
         gameStatusEl.innerText = 'Player 1 Wins!'
         gameStatusEl.style.color= 'green'
         counter1.innerText = 'Player 1 wins!'
         counter1.style.color= 'green'
         counter2.style.display='none'
     }
-    if (player2Stack.length === 8){
+    if (player2Stack.length === 52){
         gameStatusEl.innerText = 'Player 2 Wins!'
         gameStatusEl.style.color= 'green'
         counter1.innerText = 'Player 2 wins!'
