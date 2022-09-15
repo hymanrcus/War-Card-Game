@@ -43,9 +43,7 @@ resetButton.addEventListener('click', initDisplay);
         cards[rndIdx] = temp
     }
     return cards
-
   }
-
   function dealCards(){
     gameStatusEl.innerText = 'Flip The Cards!'
     dealButton.style.display = 'none'
@@ -71,11 +69,9 @@ resetButton.addEventListener('click', initDisplay);
     p1deckEl.classList.add('back-blue', 'animated', 'rotateIn');
     p2deckEl.classList.remove('outline');
     p2deckEl.classList.add('back-blue', 'animated', 'rotateIn');
-
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
 }
-
 function handleFlip() {
     if (player1Stack.length > 0) {
         currP1Flip = player1Stack.splice(0, 1);
@@ -143,7 +139,6 @@ function compareFlipped() {
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
     //render(currP1Flip, currP2Flip)
 };
-
 function clearDisplay(){
     flipButton.style.display = 'none'
     if(covertCardToNumber(currP1Flip) > covertCardToNumber(currP2Flip)){
@@ -168,7 +163,6 @@ function clearDisplay(){
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards`
     getWinner()
 }
-
 function war() {
     if (player1Stack.length > 0) {
         p1iDeclareWar = player1Stack.splice(0, 3);
@@ -202,7 +196,6 @@ function war() {
     }
   compareWarCards();
 };
-
 function clearWarDisplay(){
   if(covertCardToNumber(p1War) > covertCardToNumber(p2War)){
     setTimeout (function(){
@@ -265,7 +258,6 @@ function clearWarDisplay(){
     setTimeout (function(){
       p2flipEl.classList.add('animated', 'slideOutRight')
     },7000) 
-
     setTimeout(function(){
         p1flipEl.classList.replace(`${currP1Flip}`,'outline')
         p2flipEl.classList.replace(`${currP2Flip}`,'outline')
@@ -282,7 +274,6 @@ function clearWarDisplay(){
         p2flipEl.classList.remove('animated','fadeInRight','slideOutRight')
         p2flipEl.classList.replace(`${p2iDeclareWar}`, 'outline')
     },10000)
-
     setTimeout(function(){
         p2iDeclareWarEl.style.display = 'none'
         p2warFlipEl.style.display = 'none'
@@ -310,7 +301,6 @@ function compareWarCards() {
           counter2.textContent =`Player 2 has: ${player2Stack.length} cards`
           getWinner()
         },5000)
-
     } else if (covertCardToNumber(p1War) < covertCardToNumber(p2War)) {
         player2Stack.push(`${p2iDeclareWar[0]}`, `${p2iDeclareWar[1]}`, `${p2iDeclareWar[2]}`);
         player2Stack.push(`${player2Flip[0]}`);
@@ -353,7 +343,6 @@ function getWinner(){
         counter2.style.display='none'
     }
 }
-
 /*------------------------- Render Functions -------------------------*/
 function render(currP1Flip, currP2Flip){
   //Player 1 Render
