@@ -20,11 +20,11 @@ If the cards are the same rank, it is War!
 Each player turns up one card face down and one card face up. The player with the higher card takes both piles and the cards flipped. If the turned-up cards are again the same rank it is war again!
 
 
-## Deployment link :
+## Deployment link 
 
 https://war-game-by-marcus.netlify.app/
 
-## Technologies Used: 
+## Technologies Used
 
 JavaScript, HTML, CSS
 

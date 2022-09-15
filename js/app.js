@@ -72,6 +72,7 @@ resetButton.addEventListener('click', initDisplay);
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
 }
+
 function handleFlip() {
     if (player1Stack.length > 0) {
         currP1Flip = player1Stack.splice(0, 1);
@@ -241,22 +242,22 @@ function clearWarDisplay(){
   }
   if(covertCardToNumber(p1War) < covertCardToNumber(p2War)){
     setTimeout (function(){
-      p1flipEl.classList.add('animated', 'slideOutRight')
+    p1flipEl.classList.add('animated', 'slideOutRight')
     },2000)
     setTimeout(function(){
-        p1iDeclareWarEl.classList.add('animated', 'slideOutRight')
+    p1iDeclareWarEl.classList.add('animated', 'slideOutRight')
     },3000)
     setTimeout (function(){
     p1warFlipEl.classList.add('animated', 'slideOutRight')
     },4000)
     setTimeout (function(){
-      p2warFlipEl.classList.add('animated', 'slideOutRight')
+    p2warFlipEl.classList.add('animated', 'slideOutRight')
     },5000)
     setTimeout(function(){
-      p2iDeclareWarEl.classList.add('animated', 'slideOutRight')
+    p2iDeclareWarEl.classList.add('animated', 'slideOutRight')
     },6000) 
     setTimeout (function(){
-      p2flipEl.classList.add('animated', 'slideOutRight')
+    p2flipEl.classList.add('animated', 'slideOutRight')
     },7000) 
     setTimeout(function(){
         p1flipEl.classList.replace(`${currP1Flip}`,'outline')
@@ -327,6 +328,7 @@ function compareWarCards() {
     //  flipButton.style.display = 'block';
     // }, 11000);
 };
+
 function getWinner(){
     if (player1Stack.length === 52){
         gameStatusEl.innerText = 'Player 1 Wins!'
@@ -340,7 +342,7 @@ function getWinner(){
         gameStatusEl.style.color= 'green'
         counter1.innerText = 'Player 2 wins!'
         counter1.style.color= 'green'
-        counter2.style.display='none'
+        counter2.style.display= 'none'
     }
 }
 /*------------------------- Render Functions -------------------------*/
