@@ -285,7 +285,7 @@ function compareWarCards() {
         player1Stack.push(`${player2Flip[0]}`);
         player1Stack.push(`${p2War}`);
         player2Stack.splice(player2Stack.length - 1, 1);
-        //winner = 1;
+
         setTimeout(function(){
           gameStatusEl.innerText = "Player 1 Wins This WAR!"
           counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
@@ -299,7 +299,7 @@ function compareWarCards() {
         player2Stack.push(`${player1Flip[0]}`);
         player2Stack.push(p1War);
         player1Stack.splice(player1Stack.length - 1, 1);
-        //winner = 2;
+
         setTimeout(function(){
             gameStatusEl.innerText = "Player 2 Wins This WAR!"
             counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
@@ -354,6 +354,7 @@ function render(currP1Flip, currP2Flip){
   p2flipEl.classList.add('animated' , 'fadeInRight')
 }
 function renderWar(p1War,p2War){
+    //Player 1 Render
     if(p1War){
         p1flipEl.classList.remove('outline')
       }

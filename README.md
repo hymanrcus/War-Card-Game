@@ -1,5 +1,5 @@
 # War-Card-Game
-this is my wire frame
+[this is my wire frame](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
 
 ## Goal
 
@@ -26,7 +26,7 @@ https://war-game-by-marcus.netlify.app/
 
 ## Technologies Used
 
-JavaScript, HTML, CSS, Animate.css
+JavaScript, HTML, CSS, Animate.css, favicon.io
 
 ## Next Steps
 Sounds
