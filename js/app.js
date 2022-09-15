@@ -133,8 +133,6 @@ function compareFlipped() {
         }, 15000)
         renderWar(p1War,p2War)
     }
-    console.log(`Player 1 has ${player1Stack.length} cards` )
-    console.log(`Player 2 has ${player2Stack.length} cards`)
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
 
@@ -176,8 +174,6 @@ function war() {
             p1warFlipEl.classList.replace('outline', `${p1War}`);
             p1warFlipEl.classList.add('animated', 'slideInLeft'); 
         }, 3000);
-        console.log("player 1 I DECLARE WAR" + p1iDeclareWar)
-        console.log("player 1  war " + p1War)
     }
     if (player2Stack.length > 0) {
         p2iDeclareWar = player2Stack.splice(0, 3);
@@ -191,8 +187,6 @@ function war() {
             p2warFlipEl.classList.replace('outline', `${p2War}`);
             p2warFlipEl.classList.add('animated', 'slideInRight'); 
         }, 3000);
-        console.log("player 2 I DECLARE WAR " + p2iDeclareWar)
-        console.log("player 2  war " + p2War)
     }
   compareWarCards();
 };
@@ -281,12 +275,9 @@ function clearWarDisplay(){
         p1iDeclareWarEl.style.display = 'none' 
     },8000)
   }
-//   setTimeout(function(){
-//     renderWar(p1War,p2War)
-//   }, 11000)
 }
 function compareWarCards() {
-    //flipButton.style.display = 'none'
+    flipButton.style.display = 'none'
     if (covertCardToNumber(p1War) > covertCardToNumber(p2War)) {
         player1Stack.push(`${p1iDeclareWar[0]}`, `${p1iDeclareWar[1]}`, `${p1iDeclareWar[2]}`);
         player1Stack.push(`${player1Flip[0]}`);
@@ -322,11 +313,8 @@ function compareWarCards() {
         resetButton.style.display = "block"
       },2000 )
     }
-    // getWinner()
-    // setTimeout (function (){
-    //  flipButton.style.display = 'block';
-    // }, 11000);
 };
+
 function getWinner(){
     if (player1Stack.length === 8){
         gameStatusEl.innerText = 'Player 1 Wins!'
@@ -367,7 +355,6 @@ function render(currP1Flip, currP2Flip){
 }
 function renderWar(p1War,p2War){
     if(p1War){
-        //p1flipEl.classList.remove(p1War)
         p1flipEl.classList.remove('outline')
       }
       if (player1Flip.length  > 1) {
@@ -375,7 +362,6 @@ function renderWar(p1War,p2War){
       }
     //Player 2 Render
       if(p2War){
-        //p2flipEl.classList.remove(p2War)
         p2flipEl.classList.remove('outline')
       }
       if (player1Flip.length  > 1) {
@@ -403,7 +389,7 @@ function warDisplay(){
   resetButton.style.display = "none"
 }
 /*------------------------- Helper Functions -------------------------*/
-//CALLBACK function meant to translate the card description to a number in order to compare
+//Callback Function for giving cards a value so that I can compare different suits
 function covertCardToNumber(card) {
     if(`${card}` === 'd02' || `${card}` === 'c02' || `${card}` === 's02' || `${card}` === 'h02'){
       return 2;

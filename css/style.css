@@ -1,6 +1,4 @@
-html {
-  color: green;
-}
+
 
 h1{
   display: flex;
@@ -23,12 +21,10 @@ h1{
 
 h2{
   display: flex;
-  color: #d62c2c;
+  color: #bc4949;
   justify-content: center;
 }
 
-
-@charset "UTF-8";
 .card {
   box-sizing: border-box;
   display: inline-block;
