@@ -26,6 +26,7 @@ https://war-game-by-marcus.netlify.app/
 
 ## Technologies Used
 
-JavaScript, HTML, CSS
+JavaScript, HTML, CSS, Animate.css
 
 ## Next Steps
+Sounds

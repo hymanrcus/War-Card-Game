@@ -1,4 +1,4 @@
-body {
+html {
   color: green;
 }
 
@@ -23,7 +23,7 @@ h1{
 
 h2{
   display: flex;
-  color: #c3c3c3;
+  color: #d62c2c;
   justify-content: center;
 }
 

@@ -52,13 +52,13 @@ resetButton.addEventListener('click', initDisplay);
     },1500)
     shuffleCards();
     if (cards.length > 0) {
-        for (let i = 0; i < 26; i++) {
+        for (let i = 0; i < 4; i++) {
             let cardDealt1;
             cardDealt1 = cards.splice(0, 1);
             player1Stack.push(cardDealt1);
             player1Stack = player1Stack.flat()
         }
-        for (let i = 0; i < 26; i++) {
+        for (let i = 0; i < 4; i++) {
             let cardDealt2;
             cardDealt2 = cards.splice(0, 1);
             player2Stack.push(cardDealt2);
@@ -94,7 +94,6 @@ function handleFlip() {
         p1flipEl.classList.replace('slideOutRight', currP1Flip)
         p2flipEl.classList.replace('slideOutRight', currP2Flip)
     }
-     //remove the class given for next war
     compareFlipped()
 };
 function compareFlipped() {
@@ -138,7 +137,7 @@ function compareFlipped() {
     console.log(`Player 2 has ${player2Stack.length} cards`)
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
-    //render(currP1Flip, currP2Flip)
+
 };
 function clearDisplay(){
     flipButton.style.display = 'none'
@@ -328,16 +327,15 @@ function compareWarCards() {
     //  flipButton.style.display = 'block';
     // }, 11000);
 };
-
 function getWinner(){
-    if (player1Stack.length === 52){
+    if (player1Stack.length === 8){
         gameStatusEl.innerText = 'Player 1 Wins!'
         gameStatusEl.style.color= 'green'
         counter1.innerText = 'Player 1 wins!'
         counter1.style.color= 'green'
         counter2.style.display='none'
     }
-    if (player2Stack.length === 52){
+    if (player2Stack.length === 8){
         gameStatusEl.innerText = 'Player 2 Wins!'
         gameStatusEl.style.color= 'green'
         counter1.innerText = 'Player 2 wins!'
