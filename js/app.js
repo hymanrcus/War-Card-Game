@@ -37,10 +37,10 @@ resetButton.addEventListener('click', initDisplay);
   function shuffleCards() {
     let temp = null
     for (let idx = cards.length - 1; idx > 0; idx -= 1) {
-        let rndIdx = Math.floor(Math.random() * (idx + 1))
-        temp = cards[idx]
-        cards[idx] = cards[rndIdx]
-        cards[rndIdx] = temp
+      let rndIdx = Math.floor(Math.random() * (idx + 1))
+      temp = cards[idx]
+      cards[idx] = cards[rndIdx]
+      cards[rndIdx] = temp
     }
     return cards
   }
@@ -48,21 +48,21 @@ resetButton.addEventListener('click', initDisplay);
     gameStatusEl.innerText = 'Flip The Cards!'
     dealButton.style.display = 'none'
     setTimeout(function(){
-    flipButton.style.display = 'block'  
+      flipButton.style.display = 'block'  
     },1500)
     shuffleCards();
     if (cards.length > 0) {
-        for (let i = 0; i < 5; i++) {
-            let cardDealt1;
-            cardDealt1 = cards.splice(0, 1);
-            player1Stack.push(cardDealt1);
-            player1Stack = player1Stack.flat()
+      for (let i = 0; i < 26; i++) {
+          let cardDealt1;
+          cardDealt1 = cards.splice(0, 1);
+          player1Stack.push(cardDealt1);
+          player1Stack = player1Stack.flat()
         }
-        for (let i = 0; i < 5; i++) {
-            let cardDealt2;
-            cardDealt2 = cards.splice(0, 1);
-            player2Stack.push(cardDealt2);
-            player2Stack = player2Stack.flat()
+        for (let i = 0; i < 26; i++) {
+        let cardDealt2;
+        cardDealt2 = cards.splice(0, 1);
+        player2Stack.push(cardDealt2);
+        player2Stack = player2Stack.flat()
         }
     }
     p1deckEl.classList.remove('outline');
@@ -75,63 +75,63 @@ resetButton.addEventListener('click', initDisplay);
 
 function handleFlip() {
     if (player1Stack.length > 0) {
-        currP1Flip = player1Stack.splice(0, 1);
-        player1Flip.push(currP1Flip); 
-        p1flipEl.classList.replace('outline', currP1Flip)
-        p2flipEl.classList.replace('outline', currP2Flip) 
+      currP1Flip = player1Stack.splice(0, 1);
+      player1Flip.push(currP1Flip); 
+      p1flipEl.classList.replace('outline', currP1Flip)
+      p2flipEl.classList.replace('outline', currP2Flip) 
     }
     if (player2Stack.length > 0) {
-        currP2Flip = player2Stack.splice(0, 1);
-        player2Flip.push(currP2Flip)
-        p1flipEl.classList.replace('outline', currP1Flip)
-        p2flipEl.classList.replace('outline', currP2Flip)
+      currP2Flip = player2Stack.splice(0, 1);
+      player2Flip.push(currP2Flip)
+      p1flipEl.classList.replace('outline', currP1Flip)
+      p2flipEl.classList.replace('outline', currP2Flip)
     }
     if(winner = 1){
-        p1flipEl.classList.replace('slideOutLeft', currP1Flip)
-        p2flipEl.classList.replace('slideOutLeft', currP2Flip)
+      p1flipEl.classList.replace('slideOutLeft', currP1Flip)
+      p2flipEl.classList.replace('slideOutLeft', currP2Flip)
     }
     if(winner = 2){
-        p1flipEl.classList.replace('slideOutRight', currP1Flip)
-        p2flipEl.classList.replace('slideOutRight', currP2Flip)
+      p1flipEl.classList.replace('slideOutRight', currP1Flip)
+      p2flipEl.classList.replace('slideOutRight', currP2Flip)
     }
     compareFlipped()
 };
 function compareFlipped() {
     if (covertCardToNumber(currP1Flip) > covertCardToNumber(currP2Flip)) {
-        player1Stack.push(`${currP1Flip}`);
-        player1Stack.push(`${currP2Flip}`);
-        player2Stack.splice(player2Stack.length, 1);
-        winner = 1;
-        gameStatusEl.innerText = "Player 1 Wins This Round!"
-        clearDisplay()
-        setTimeout (function (){
-          flipButton.style.display = 'block';
+      player1Stack.push(`${currP1Flip}`);
+      player1Stack.push(`${currP2Flip}`);
+      player2Stack.splice(player2Stack.length, 1);
+      winner = 1;
+      gameStatusEl.innerText = "Player 1 Wins This Round!"
+      clearDisplay()
+      setTimeout (function (){
+        flipButton.style.display = 'block';
         }, 3500)
-        render(currP1Flip, currP2Flip)
+      render(currP1Flip, currP2Flip)
     } else if (covertCardToNumber(currP1Flip) < covertCardToNumber(currP2Flip)) {
-        player2Stack.push(`${currP2Flip}`);
-        player2Stack.push(`${currP1Flip}`);
-        player1Stack.splice(player1Stack.length, 1);
-        winner = 2;
-        gameStatusEl.innerText = "Player 2 Wins This Round!"
-        clearDisplay()
-        setTimeout (function (){
-          flipButton.style.display = 'block';
+      player2Stack.push(`${currP2Flip}`);
+      player2Stack.push(`${currP1Flip}`);
+      player1Stack.splice(player1Stack.length, 1);
+      winner = 2;
+      gameStatusEl.innerText = "Player 2 Wins This Round!"
+      clearDisplay()
+      setTimeout (function (){
+        flipButton.style.display = 'block';
         }, 3500)
-        render(currP1Flip, currP2Flip)
+      render(currP1Flip, currP2Flip)
     }else {
-        gameStatusEl.innerText = 'I DECLARE WAR!'
-        warDisplay()
-        setTimeout(function(){
-            war()
-        },1000)
-        setTimeout(function(){
-          clearWarDisplay()
-        },3000)
-        setTimeout (function (){
-          flipButton.style.display = 'block';
-        }, 15000)
-        renderWar(p1War,p2War)
+      gameStatusEl.innerText = 'I DECLARE WAR!'
+      warDisplay()
+      setTimeout(function(){
+          war()
+      },1000)
+      setTimeout(function(){
+        clearWarDisplay()
+      },3000)
+      setTimeout (function (){
+        flipButton.style.display = 'block';
+      }, 15000)
+      renderWar(p1War,p2War)
     }
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
@@ -316,21 +316,19 @@ function compareWarCards() {
 };
 
 function getWinner(){
-    if (player1Stack.length === 10){
+    if (player1Stack.length === 52){
       gameStatusEl.innerText = 'Player 1 Wins!'
       gameStatusEl.style.color= 'green'
       counter1.innerText = 'Player 1 wins!'
       counter1.style.color= 'green'
       counter2.style.display='none'
-      flipButton.style.display = ''
     }
-    if (player2Stack.length === 10){
+    if (player2Stack.length === 52){
       gameStatusEl.innerText = 'Player 2 Wins!'
       gameStatusEl.style.color= 'green'
       counter1.innerText = 'Player 2 wins!'
       counter1.style.color= 'green'
       counter2.style.display= 'none'
-      flipButton.style.display = ''
     }
 }
 /*------------------------- Render Functions -------------------------*/
