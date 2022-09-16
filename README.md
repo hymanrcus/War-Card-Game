@@ -1,7 +1,4 @@
 # War-Card-Game
-[Wireframe found here](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
-
-[Pseudo-code found here](https://docs.google.com/document/d/1S9qRhC-t8bSbKKMr4UvPn8EK2eHHP2wnOngsH9SNDb0/edit)
 
 ## Goal
 
@@ -19,8 +16,11 @@ If the cards are the same rank, it is War!
 
 ## WAR
 
-Each player turns up one card face down and one card face up. The player with the higher card takes both piles and the cards flipped. If the turned-up cards are again the same rank it is war again!
+Each player turns up three cards face down and one card face up. The player with the higher ranking card takes both piles and the cards flipped. If the turned-up cards are again the same rank it is war again!
 
+[Wireframe found here](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
+
+[Pseudo-code found here](https://docs.google.com/document/d/1S9qRhC-t8bSbKKMr4UvPn8EK2eHHP2wnOngsH9SNDb0/edit)
 
 ## Deployment link 
 
