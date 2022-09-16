@@ -1,6 +1,8 @@
 # War-Card-Game
 [Wireframe found here](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
 
+[Pseudo-code found here](https://docs.google.com/document/d/1S9qRhC-t8bSbKKMr4UvPn8EK2eHHP2wnOngsH9SNDb0/edit)
+
 ## Goal
 
 The goal is to be the first player to win all 52 cards
@@ -30,4 +32,4 @@ JavaScript, HTML, CSS, Animate.css, favicon.io
 
 ## Next Steps
 Sounds
-backround/texture
+Backround/texture
