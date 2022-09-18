@@ -1,5 +1,9 @@
 # War-Card-Game
 
+## Background
+
+The reason I chose this game was beacause this was the first card game I remember playing.
+
 ## Goal
 
 The goal is to be the first player to win all 52 cards
@@ -18,7 +22,9 @@ If the cards are the same rank, it is War!
 
 Each player turns up three cards face down and one card face up. The player with the higher ranking card takes both piles and the cards flipped. If the turned-up cards are again the same rank it is war again!
 
-[Wireframe found here](https://raw.githubusercontent.com/hymanrcus/War-Card-Game/main/Screen%20Shot%202022-09-12%20at%2010.42.05.png)
+![Screen upon loading](War-card-game1.png/)
+
+![Screen while playing](War-card-game2.png)
 
 [Pseudo-code found here](https://docs.google.com/document/d/1S9qRhC-t8bSbKKMr4UvPn8EK2eHHP2wnOngsH9SNDb0/edit)
 
@@ -32,4 +38,6 @@ JavaScript, HTML, CSS, Animate.css, favicon.io
 
 ## Next Steps
 Sounds
-Backround/texture
+Background/texture
+Two player functionality
+

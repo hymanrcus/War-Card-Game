@@ -131,7 +131,7 @@ function compareFlipped() {
       setTimeout (function (){
         flipButton.style.display = 'block';
       }, 15000)
-      renderWar(p1War,p2War)
+        renderWar(p1War,p2War)
     }
     counter1.textContent =`Player 1 has: ${player1Stack.length} cards` 
     counter2.textContent =`Player 2 has: ${player2Stack.length} cards` 
